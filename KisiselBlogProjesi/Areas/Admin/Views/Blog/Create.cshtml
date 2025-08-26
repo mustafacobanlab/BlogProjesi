@@ -1,0 +1,117 @@
+﻿@model KisiselBlogProjesi.Models.Blog
+@{
+    ViewData["Title"] = "Yeni Blog Oluştur";
+}
+
+<h1>Yeni Blog Oluştur</h1>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">Başlık</label>
+        <input asp-for="title" class="form-control" placeholder="Blog başlığı girin" />
+        <span asp-validation-for="title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="authorId">Yazar Adı</label>
+        <input asp-for="authorId" class="form-control" placeholder="Yazar Adını Giriniz" />
+        <span asp-validation-for="authorId" class="text-danger"></span>
+    </div>
+  
+     <div class="form-group">
+        <label for="summary">Özet (max 100 karakter)</label>
+        <textarea asp-for="summary" class="form-control" id="summary" rows="4" placeholder="Özet girin"></textarea>
+        <small id="summary-count" class="form-text text-muted">0 / 100 karakter</small>
+        <span asp-validation-for="summary" class="text-danger"></span>
+    </div>
+
+       <div class="form-group mt-2">
+        <label>İçerik</label>
+        <textarea id="content" name="content">@Model?.content</textarea>
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="file">Fotoğraf Yükle</label>
+        <input type="file" name="file" class="form-control-file" />
+    </div>
+
+    <div style="display:flex; align-items:center; gap:10px; margin-top:10px;">
+        <button type="submit" class="btn btn-primary px-4">
+            Oluştur
+        </button>
+        <a asp-action="Index" class="btn btn-secondary px-4">
+            <i class="fa fa-arrow-left"></i> Geri
+        </a>
+    </div>
+   
+
+
+</form>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+    .create(document.querySelector('#content'), {
+        toolbar: [
+            'heading', '|', 'bold', 'italic', 'link',
+            'bulletedList','numberedList','blockQuote','imageUpload'
+        ],
+        ckfinder: {
+            uploadUrl: '/Admin/Blog/UploadImage'  
+        }
+    })
+    .catch(error => console.error(error));
+</script>
+
+<style>
+    .ck-editor__editable_inline {
+        min-height: 400px; 
+        width: 100%; 
+    }
+</style>
+
+@section Scripts {
+    <script>
+        const summaryTextarea = document.getElementById('summary');
+        const summaryCount = document.getElementById('summary-count');
+        const maxChars = 100; 
+
+        summaryTextarea.addEventListener('input', function () {
+            let charCount = this.value.length;
+
+            if (charCount > maxChars) {
+                this.value = this.value.substring(0, maxChars);
+                charCount = maxChars;
+            }
+
+            summaryCount.textContent = `${charCount} / ${maxChars} karakter`;
+        });
+    </script>
+}
+
+<style>
+    .ck-editor__editable_inline {
+        min-height: 400px;
+    }
+
+    .ck-editor__editable_inline {
+        width: 100%; 
+        min-height: 400px; 
+    }
+
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        background-color: #0088FF;
+        border-color: #0088FF;
+    }
+
+    .btn-primary:hover {
+        background-color: #0066cc;
+        border-color: #0066cc;
+    }
+</style>

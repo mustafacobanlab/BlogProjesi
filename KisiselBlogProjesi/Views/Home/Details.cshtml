@@ -1,0 +1,32 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = Model.title ?? "Blog Detayı";
+}
+
+<div class="blog-details-container">
+    <h1 class="blog-title">@Model.title</h1>
+    <p class="blog-meta">
+        <span><strong>Tarih:</strong> @(Model.date?.ToString("dd.MM.yyyy HH:mm") ?? "-")</span> |
+        <span><strong>Yazar Adı:</strong> @(Model.authorId?.ToString() ?? "-")</span>
+    </p>
+
+    <img src="@(string.IsNullOrWhiteSpace(Model.photoUrl) ? "https://via.placeholder.com/800x400.png?text=No+Image" : Model.photoUrl)"
+         alt="Blog Fotoğrafı"
+         class="blog-image" />
+
+    <div class="blog-content">
+        @Html.Raw(Model.content)
+    </div>
+
+    <div class="back-link">
+        <a asp-controller="Home" asp-action="Index">← Geri Dön</a>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/blog-details.css" />
+}
+
+@section Scripts {
+    <script src="~/js/blog-details.js"></script>
+}

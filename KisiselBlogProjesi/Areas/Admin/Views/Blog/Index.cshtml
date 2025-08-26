@@ -1,0 +1,74 @@
+﻿@model KisiselBlogProjesi.Models.BlogListViewModel
+@{
+    ViewData["Title"] = "Admin Blog Listesi";
+}
+
+<h1 class="mb-3 text-center">Admin Blog Sayfası</h1>
+
+<div class="d-flex justify-content-center gap-2 mb-4">
+    <a asp-area="Admin" asp-controller="Blog" asp-action="Create" class="btn btn-success">
+        Yeni Blog Oluştur
+    </a>
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary">
+        Anasayfa
+    </a>
+    <a asp-area="Admin" asp-controller="Mesajlar" asp-action="Index" class="btn btn-info">
+        Gelen Mesajlar (@await Component.InvokeAsync("IletisimSummary"))
+    </a>
+</div>
+
+
+
+
+
+<div class="projcard-container">
+    @foreach (var b in Model.Blogs)
+    {
+        <div class="projcard projcard-blue">
+            <img class="projcard-img" src="@(string.IsNullOrWhiteSpace(b.photoUrl) ? "https://via.placeholder.com/400x300.png?text=No+Image" : b.photoUrl)" alt="Blog Fotoğrafı" />
+
+            <div class="projcard-textbox">
+                <div class="projcard-body">
+                    <div class="projcard-title">@(string.IsNullOrWhiteSpace(b.title) ? "Başlıksız" : b.title)</div>
+                    <div class="projcard-subtitle">@(b.date?.ToString("dd.MM.yyyy HH:mm") ?? "-")</div>
+                    <div class="projcard-bar"></div>
+
+                    <div class="projcard-description">
+                        @(string.IsNullOrWhiteSpace(b.summary) ? "Özet bulunmuyor." : b.summary)
+                    </div>
+
+                    
+                </div>
+
+                <div class="projcard-footer">
+                    <a asp-area="" asp-controller="Home" asp-action="Details" asp-route-id="@b.Id" class="read-more-btn">
+                        Detaylar →
+                    </a>
+                    <a asp-area="Admin" asp-controller="Blog" asp-action="Update" asp-route-id="@b.Id" class="read-more-btn admin-btn">
+                        Düzenle
+                    </a>
+                    <a asp-area="Admin" asp-controller="Blog" asp-action="Delete" asp-route-id="@b.Id" class="read-more-btn admin-btn delete-btn">
+                        Sil
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<center>
+<div page-model="@Model.Pagination" page-action="Index"
+     page-classes-enabled="true"
+     page-class="btn"
+     page-class-normal="btn-secondary"
+     page-class-selected="btn-primary">
+</div>
+</center>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/admin-blog.css" />
+}
+
+@section Scripts {
+    <script src="~/js/admin-blog.js"></script>
+}

@@ -1,0 +1,141 @@
+﻿:root {
+    --primary-color: #0088FF;
+    --primary-color-dark: #0066cc;
+    --text-color: #333;
+    --subtitle-color: #777;
+    --content-color: #444;
+}
+
+.projcard-container {
+    margin: 30px auto;
+    max-width: 1000px;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.projcard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+    .projcard:hover {
+        transform: translateY(-3px);
+    }
+
+.projcard-img {
+    flex: 1 1 300px;
+    min-width: 280px;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.projcard-textbox {
+    flex: 2 1 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.projcard-body {
+    display: block;
+}
+
+.projcard-title {
+    font-size: 22px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.projcard-subtitle {
+    font-size: 14px;
+    color: var(--subtitle-color);
+    margin-bottom: 10px;
+}
+
+.projcard-bar {
+    width: 50px;
+    height: 4px;
+    margin: 8px 0;
+    border-radius: 3px;
+    background-color: var(--primary-color);
+}
+
+.projcard-description {
+    font-size: 14px;
+    color: var(--content-color);
+    max-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.projcard-tagbox {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.projcard-tag {
+    display: inline-block;
+    background: #E0E0E0;
+    color: #555;
+    border-radius: 3px 0 0 3px;
+    padding: 2px 8px;
+    margin-right: 5px;
+}
+
+.projcard-footer {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.read-more-btn {
+    padding: 6px 12px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+    .read-more-btn:hover {
+        background-color: var(--primary-color-dark);
+    }
+
+.delete-btn {
+    background-color: #D62F1F;
+}
+
+    .delete-btn:hover {
+        background-color: #a8281a;
+    }
+
+@@media (max-width: 768px) {
+    .projcard {
+        flex-direction: column;
+    }
+
+    .projcard-img {
+        width: 100%;
+        max-height: 200px;
+    }
+
+    .projcard-footer {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,50 @@
+﻿@model KisiselBlogProjesi.Models.Iletisim
+@{
+    ViewData["Title"] = "İletişim";
+}
+
+<h1>İletişim</h1>
+
+<form asp-action="iletisim" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="adSoyad">Ad Soyad</label>
+        <input asp-for="adSoyad" class="form-control" placeholder="Ad Soyad" />
+        <span asp-validation-for="adSoyad" class="text-danger"></span>
+    </div>
+    
+
+    <div class="form-group">
+        <label for="mesaj">Mesajınız</label>
+        <textarea asp-for="mesaj" class="form-control" rows="10" placeholder="Mesajınızı Giriniz"></textarea>
+        <span asp-validation-for="mesaj" class="text-danger"></span>
+    </div>
+   
+    <div style="display:flex; align-items:center; gap:10px; margin-top:10px;">
+        <button type="submit" class="btn btn-primary px-4">
+            Gönder
+        </button>
+        <a asp-action="Index" class="btn btn-secondary px-4">
+            <i class="fa fa-arrow-left"></i> Geri
+        </a>
+       
+
+</form>
+
+
+    
+
+<style>
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        background-color: #0088FF;
+        border-color: #0088FF;
+    }
+
+        .btn-primary:hover {
+            background-color: #0066cc;
+            border-color: #0066cc;
+        }
+</style>

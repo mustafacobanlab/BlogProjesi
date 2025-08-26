@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Kişisel Blog</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @RenderSection("Styles", required: false)
+    
+    <link rel="stylesheet" href="~/KisiselBlogProjesi.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+      
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <footer class="border-top footer text-muted">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                &copy; 2025 - Mustafa Çoban - Kişisel Blog Projem - Tüm Hakları Saklıdır.
+            </div>
+            <div class="d-flex align-items-center">
+                <a asp-area="" asp-controller="Home" asp-action="Iletisim" class="text-dark me-3">İletişim</a>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-area="Admin" asp-controller="Blog" asp-action="Index" class="text-dark me-3">Admin Panel</a>
+                    <a asp-area="" asp-controller="Account" asp-action="Logout" class="text-dark">Çıkış Yap</a>
+                }
+                else
+                {
+                    <a asp-area="" asp-controller="Account" asp-action="Login" class="text-dark">Giriş Yap</a>
+                }
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

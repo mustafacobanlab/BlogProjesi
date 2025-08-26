@@ -1,0 +1,56 @@
+﻿@model KisiselBlogProjesi.Models.BlogListViewModel
+
+@{
+    ViewData["Title"] = "Blog Listesi";
+}
+
+<center>
+<h1 class="mb-3 text-center position-relative d-inline-block mx-auto pb-2" style="font-weight:600;">
+    Kişisel Blogum
+</h1>
+<hr class="mx-auto mb-4" style="width:120px; height:3px; background:#0088FF; border-radius:5px; border:none;" />
+</center>
+
+<div class="projcard-container">
+    @foreach (var b in Model.Blogs)
+    {
+        <div class="projcard projcard-blue">
+            <img class="projcard-img" src="@(string.IsNullOrWhiteSpace(b.photoUrl) ? "https://via.placeholder.com/400x300.png?text=No+Image" : b.photoUrl)" alt="Blog Photo" />
+            <div class="projcard-textbox">
+                <div class="projcard-body">
+                    <div class="projcard-title">@(string.IsNullOrWhiteSpace(b.title) ? "Başlıksız" : b.title)</div>
+                    <div class="projcard-subtitle">@(b.date?.ToString("dd.MM.yyyy HH:mm") ?? "-")</div>
+                    <div class="projcard-bar"></div>
+                    <div class="projcard-description">
+                        @(string.IsNullOrWhiteSpace(b.summary) ? "Özet bulunmuyor." : b.summary)
+                    </div>
+                    <div class="projcard-tagbox">
+                        <span class="projcard-tag">Yazar Adı: @(b.authorId?.ToString() ?? "-")</span>
+                       
+                    </div>
+                </div>
+                <div class="projcard-footer">
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@b.Id" class="read-more-btn">
+                        Devamını Oku →
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<center>
+<div page-model="@Model.Pagination" page-action="Index"
+     page-classes-enabled="true"
+     page-class="btn"
+     page-class-normal="btn-secondary"
+     page-class-selected="btn-primary">
+</div>
+</center>
+
+@section Scripts {
+    <script src="~/js/blog.js"></script>
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/blog.css" />
+}
