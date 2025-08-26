@@ -36,6 +36,20 @@ Bu proje, **ASP.NET Core 9** kullanılarak geliştirilmiş bir kişisel blog uyg
 ## 📸 Ekran Görüntüleri
 
 ### Anasayfa
+<img width="930" height="935" alt="image" src="https://github.com/user-attachments/assets/e813fef2-5260-4a00-9533-1f2953658007" />
+
+### Blog Yazısı Sayfası
+<img width="865" height="916" alt="image" src="https://github.com/user-attachments/assets/4c396e08-1152-46fc-8505-1016a60b9d14" />
+
+### Login
+<img width="751" height="513" alt="image" src="https://github.com/user-attachments/assets/c39ba841-64ca-4bef-a284-ab3fd14fe2fc" />
+
+### Blog Oluşturma
+<img width="941" height="934" alt="image" src="https://github.com/user-attachments/assets/6214d1f9-1954-4408-b0ef-214edde0cada" />
+
+### Admin Panel
+<img width="946" height="929" alt="image" src="https://github.com/user-attachments/assets/687cfc55-032d-4f03-980f-78d8ff562753" />
+
 
 ## Kullanım
 
