@@ -23,10 +23,37 @@ Bu proje, **ASP.NET Core 9** kullanılarak geliştirilmiş bir kişisel blog uyg
 
 ---
 
-## Kurulum
+## Admin Girişi
 
-1. Depoyu klonlayın:
+## 🔐 Giriş Bilgileri
 
-```bash
-git clone https://github.com/kullaniciAdi/KisiselBlog.git
-cd KisiselBlog
+| 🛡️ Yetki | 👤 Kullanıcı Adı | 🔑 Şifre |
+|:------------|:----------------|:-----------|
+| 👑 Admin     | `Admin`         | `Admin+123456`     |
+(Admin bilgileri ilk çalıştırmada otomatik oluşturulur.)
+
+## 📸 Ekran Görüntüleri
+
+### Anasayfa
+
+## Kullanım
+
+Admin paneline giriş yaparak yeni blog ekleyebilir, mevcut blogları güncelleyebilir veya silebilirsiniz.
+
+Ana sayfada bloglar listelenir; her blog detay sayfasından okunabilir.
+
+## Teknolojiler
+
+ASP.NET Core 9
+
+Entity Framework Core
+
+Identity Framework
+
+Bootstrap 5
+
+SQL Server
+
+## Lisans
+
+Bu proje MIT Lisansı ile lisanslanmıştır. Detaylar için LICENSE dosyasına bakabilirsiniz.
