@@ -30,6 +30,7 @@ Bu proje, **ASP.NET Core 9** kullanılarak geliştirilmiş bir kişisel blog uyg
 | 🛡️ Yetki | 👤 Kullanıcı Adı | 🔑 Şifre |
 |:------------|:----------------|:-----------|
 | 👑 Admin     | `Admin`         | `Admin+123456`     |
+
 (Admin bilgileri ilk çalıştırmada otomatik oluşturulur.)
 
 ## 📸 Ekran Görüntüleri
